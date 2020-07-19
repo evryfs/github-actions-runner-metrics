@@ -4,3 +4,6 @@ RUN apt-get update && \
 	apt-get --no-install-recommends -y install mtail && \
 	apt-get -y clean && \
 	rm -rf /var/cache/apt /var/lib/apt/lists/* /tmp/* /var/tmp/*
+COPY progs /progs
+EXPOSE 3903
+CMD ["mtail", "-logtostderr", "-logs", "/_diag/*", "-progs", "/progs"]

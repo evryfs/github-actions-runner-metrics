@@ -1,0 +1,10 @@
+counter job_run_count
+counter job_complete_count
+
+/.*Running job: .*/ {
+  job_run_count++
+}
+
+/.*Job .* completed with result.*/ {
+  job_complete_count++
+}
