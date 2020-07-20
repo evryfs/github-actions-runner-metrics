@@ -1,10 +1,9 @@
-counter job_run_count
-counter job_complete_count
+counter garo_job_total by status
 
 /.*Running job: .*/ {
-  job_run_count++
+  garo_job_total[running]++
 }
 
 /.*Job .* completed with result.*/ {
-  job_complete_count++
+  garo_job_total[complete]++
 }
