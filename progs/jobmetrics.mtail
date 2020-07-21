@@ -1,13 +1,9 @@
-text complete
-text running
 counter garo_job_total by status
 
 /.*Running job: .*/ {
-  running = 'running'
-  garo_job_total[running]++
+  garo_job_total["running"]++
 }
 
 /.*Job .* completed with result.*/ {
-  complete = 'complete'
-  garo_job_total[complete]++
+  garo_job_total["complete"]++
 }
